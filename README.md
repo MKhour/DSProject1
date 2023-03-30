@@ -7,6 +7,6 @@ We have elected to use bank transactions (deposits and withdrawals) as the core 
 
 ## Database Schema
 
-The schema of this data warehouse follows a star/snowflake design, since this is an OLAP database centered around the fact table. Figure 1 shows the complete schema.
+The schema of this data warehouse follows a star/snowflake design, since this is an OLAP database centered around the bank transaction table, which is the fact table. Figure 1 shows the complete schema.
 
 ![The schema for the database](/schema.png "Figure 1. Data Warehouse Schema")
