@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `banks`.`transactions` (
   `transaction_id` INT(15) NOT NULL AUTO_INCREMENT,
   `account_no` VARCHAR(15) NULL DEFAULT NULL,
   `balance` VARCHAR(15) NULL DEFAULT NULL,
-  `user_id` INT(5) NULL DEFAULT NULL,
+  `withdrawal` VARCHAR(15) NULL DEFAULT NULL,
   `details` VARCHAR(30) NULL DEFAULT NULL,
   `date` DATETIME ,
   PRIMARY KEY (`transaction_id`),
