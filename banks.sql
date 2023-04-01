@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `banks`.`transactions` (
   `balance` VARCHAR(15) NULL DEFAULT NULL,
   `user_id` INT(5) NULL DEFAULT NULL,
   `details` VARCHAR(30) NULL DEFAULT NULL,
+  `date` DATETIME ,
   PRIMARY KEY (`transaction_id`),
   CONSTRAINT `accounts`
     FOREIGN KEY (`account_no`)
