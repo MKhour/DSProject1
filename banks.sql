@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `banks`.`locations` (
   `ship_city` VARCHAR(50) NULL DEFAULT NULL,
   `ship_state_province` VARCHAR(50) NULL DEFAULT NULL,
   `zipcode` VARCHAR(15) NULL DEFAULT NULL,
-  `ship_country_region` VARCHAR(50) NULL DEFAULT NULL,
+  `ship_country_region` VARCHAR(15) NULL DEFAULT NULL,
   PRIMARY KEY (`loc_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -50,7 +50,12 @@ CREATE TABLE IF NOT EXISTS `banks`.`accounts` (
   `balance` VARCHAR(15) NULL DEFAULT NULL,
   `user_id` INT(5) NULL DEFAULT NULL,
   `account_type` VARCHAR(30) NULL DEFAULT NULL,
-  PRIMARY KEY (`account_no`))
+  PRIMARY KEY (`account_no`),
+  CONSTRAINT `userid`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `banks`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -60,7 +65,12 @@ CREATE TABLE IF NOT EXISTS `banks`.`transactions` (
   `balance` VARCHAR(15) NULL DEFAULT NULL,
   `user_id` INT(5) NULL DEFAULT NULL,
   `details` VARCHAR(30) NULL DEFAULT NULL,
-  PRIMARY KEY (`transaction_id`))
+  PRIMARY KEY (`transaction_id`),
+  CONSTRAINT `accounts`
+    FOREIGN KEY (`account_no`)
+    REFERENCES `banks`.`accounts` (`account_no`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
